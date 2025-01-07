@@ -1,0 +1,783 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.demo {
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 1rem;
+  font-family: "Oswald";
+  color: black;
+  text-align: right;
+  display: none;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background: #e9eaea;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 15px;
+}
+
+/***************** HEADER NAME SECTION***************/
+
+#jsIcon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 67px;
+  transform: rotate(45deg);
+}
+
+#htmlIcon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+}
+
+#cssIcon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 220px;
+  left: 41px;
+  transform: rotate(30deg);
+  transition: all 0.8s ease;
+  display: none;
+}
+
+#cssIcon:hover {
+  transform: rotate(0);
+  transition: all 0.3s ease;
+}
+
+.content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content h1 span {
+  color: orange;
+}
+
+.content a {
+  width: 150px;
+  padding: 10px;
+  margin-top: 70px;
+  font-size: 1rem;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  border-radius: 15%;
+  border: 1px solid orange;
+  box-shadow: 5px 5px 2px 0px rgba(245, 245, 245, 0.5);
+  background: orange;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.content a:hover {
+  opacity: 0.8;
+}
+
+.content p img {
+  width: 30px;
+  height: 30px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  font-family: "Gayathri";
+  color: black;
+}
+
+.content p {
+  font-size: 1.2rem;
+  font-family: "Cormorant Garamond";
+  color: black;
+}
+
+/******************* MENU BURGER SECTION**************/
+
+.menu-wrapper {
+  position: fixed;
+  top: 35px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.menu-wrapper .toggle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 99;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.menu-wrapper .hamburger {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 98;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-wrapper .hamburger .bar {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: black;
+  z-index: 5;
+  transition: all 0.2s linear;
+}
+
+.menu-wrapper .hamburger .bar::before,
+.menu-wrapper .hamburger .bar::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background: black;
+  transition: all 0.2s linear;
+}
+
+.menu-wrapper .hamburger .bar::after {
+  top: 10px;
+}
+
+.menu-wrapper .toggle:hover + .hamburger {
+  transform: rotate(-25deg);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.menu-wrapper .toggle:checked + .hamburger {
+  transform: rotate(45deg);
+}
+
+.menu-wrapper .toggle:checked + .hamburger .bar::before,
+.menu-wrapper .toggle:checked + .hamburger .bar::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrapper .toggle:checked:hover + .hamburger {
+  transform: rotate(135deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  background: rgba(25, 25, 25, 0.85);
+
+  z-index: 3;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 50%;
+  border-right: 2px solid orange;
+  border-bottom: 2px solid orange;
+}
+
+.menu ul li {
+  font-size: 1.2rem;
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+  font-family: "Cormorant Garamond";
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+}
+.menu ul li a:hover {
+  color: orange;
+  border-bottom: 2px solid white;
+}
+
+.menu-wrapper .toggle:checked + .hamburger + .menu {
+  opacity: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+/********** ABOUT SECTION***********/
+
+#abMeTitle h1 {
+  color: black;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  font-family: "Gayathri";
+  text-align: center;
+  padding-top: 30px;
+}
+
+#abMeTitle h1 span {
+  color: orange;
+}
+
+.about {
+  width: 100%;
+
+  background: #d4d7dd;
+}
+
+.proPicture {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+#mikPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid orange;
+}
+
+hr {
+  margin-top: 12px;
+  border: 0;
+  height: 4px;
+  background-image: linear-gradient(
+    to right,
+    rgba(28, 26, 26, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+#about-me {
+  width: 100%;
+  padding-top: 10px;
+}
+
+#story {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 24px;
+  font-family: "Gayathri";
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgb(96, 93, 93);
+}
+
+/***************** SKILLS********************/
+
+#skills {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+
+#skills img {
+  margin-top: 50px;
+  padding-bottom: 19px;
+  padding-right: 10px;
+}
+
+#skills h1 {
+  color: black;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  font-family: "Gayathri";
+  vertical-align: baseline;
+  margin-top: 50px;
+}
+
+#skills h1 span {
+  color: orange;
+}
+
+.skill-list {
+  width: 80%;
+
+  margin: 20px 36px 0 36px;
+}
+
+.skill-list ul {
+  list-style: none;
+  width: 100%;
+}
+
+.skill-list ul li {
+  width: 100%;
+
+  margin-bottom: 10px;
+  width: 100%;
+  transition: all 0.8s ease;
+}
+
+.skill-list ul li:hover {
+  transform: scale(1.1);
+  transition: all 0.8s ease;
+}
+
+.skill-list ul li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 35px;
+}
+
+.skill-list ul li div {
+  border-radius: 4px;
+
+  overflow: auto;
+  background: /*#420000*/ black;
+  padding: 3px;
+  width: 100%;
+}
+
+.skill-bars {
+  width: 100%;
+}
+
+.skill-title {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "Gayathri";
+  text-transform: uppercase;
+  color: white;
+}
+
+.skill-experience {
+  font-family: "Gayathri";
+  color: white;
+}
+
+/********************************PROJECTS****************************/
+
+.projects {
+  width: 100%;
+
+  background: #eae9e9;
+  padding-top: 30px;
+}
+
+.proTitle h1 {
+  color: black;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  font-family: "Gayathri";
+  padding: 20px;
+  text-align: center;
+}
+
+.proTitle h1 span {
+  color: orange;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.card {
+  border: 3px solid orange;
+  width: 324px;
+  height: 443px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  transition: all 0.8s ease;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: all 0.8s ease;
+}
+
+.card-title {
+  padding: 15px;
+  font-family: "Gayathri";
+  font-size: 1.4rem;
+}
+
+.card img {
+  width: 300px;
+  height: 200px;
+}
+
+.card-p {
+  padding: 10px;
+  font-family: "Gayathri";
+  text-align: center;
+}
+
+.buttons {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.buttons div a {
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  border: 2px solid orange;
+  border-radius: 10%;
+  background: black;
+  font-family: "Gayathri";
+  font-weight: 700;
+}
+
+.buttons div a:hover {
+  color: black;
+  background: white;
+}
+
+.showAll {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.showAll a {
+  width: 140px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  border-radius: 15%;
+  border: 1px solid orange;
+  box-shadow: 5px 5px 2px 0px rgba(245, 245, 245, 0.5);
+  background: orange;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+.showAll a:hover {
+  opacity: 0.8;
+}
+
+/******************************* FOOTER *************************/
+.footy {
+  width: 100%;
+  padding: 30px;
+
+  background: #420000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.hire-me {
+  width: 100%;
+  padding: 8px;
+}
+
+.hire-me h1 {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Gayathri";
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.icons {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.icons ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+}
+
+.icons ul li {
+  padding: 10px;
+}
+
+.icons ul li a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.copyrights p {
+  color: white;
+  font-family: "Gayathri";
+  text-align: center;
+}
+
+.facebook:hover {
+  color: rgb(2, 2, 34);
+}
+
+.linkedin:hover {
+  color: #283e4a;
+}
+
+.git:hover {
+  color: yellow;
+}
+
+.email:hover {
+  color: red;
+}
+
+/********** MEDIA QUERIES***********/
+
+@media only screen and (min-width: 1200px) {
+  .content h1 {
+    font-size: 4rem;
+  }
+
+  .menu-wrapper {
+    top: 0;
+  }
+
+  .demo {
+    display: block;
+  }
+
+  .menu-wrapper .toggle:checked + .hamburger + .menu {
+    opacity: 1;
+    width: 30vw;
+    height: 100vh;
+  }
+
+  .menu ul li {
+    font-size: 1.7rem;
+  }
+
+  #jsIcon {
+    width: 70px;
+    height: 70px;
+
+    bottom: 15px;
+    right: 290px;
+    transform: rotate(45deg);
+  }
+
+  #htmlIcon {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    right: 203px;
+  }
+
+  #cssIcon {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 272px;
+    left: 612px;
+    transform: rotate(30deg);
+  }
+
+  .proPicture {
+    width: 10%;
+    display: block;
+    margin-left: 60px;
+    margin-top: 40px;
+  }
+
+  #mikPhoto {
+    width: 160px;
+    height: 160px;
+  }
+
+  hr {
+    transform: rotate(90deg);
+    width: 15%;
+    margin-top: 150px;
+    margin-left: -20px;
+  }
+
+  .contOne {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+  }
+
+  #about-me {
+    width: 50%;
+    margin-top: 100px;
+    margin-left: -40px;
+  }
+
+  #story {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 24px;
+    font-family: "Gayathri";
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px gray;
+  }
+
+  /*******************  EXTRA FOR PRACTICE WITH GRID***************/
+  /*.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 50px;
+  }*/
+
+  .skill-list {
+    width: auto;
+  }
+
+  #skills img {
+    display: none;
+  }
+
+  #skills h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  #skills {
+    width: auto;
+  }
+
+  .contTwo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .skill-list ul {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 60px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+  }
+
+  .proTitle h1 {
+    font-size: 3rem;
+  }
+
+  #abMeTitle h1 {
+    font-size: 3rem;
+  }
+
+  .footy {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .contTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-list {
+    width: 50%;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .menu-wrapper {
+    top: 40px;
+  }
+
+  .menu ul li {
+    font-size: 2rem;
+  }
+
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .skill-list {
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+  }
+  .skill-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .skill-list ul li {
+    flex-basis: 30%;
+  }
+
+  .footy {
+    width: 100%;
+  }
+}
